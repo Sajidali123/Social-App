@@ -13,11 +13,9 @@ const styles  = customTheme;
 class Comments extends Component{
     render() {
         const { comments, classes } = this.props;
-        console.log(comments);
         return (
             <Grid container>
                  {comments.map((comment, index) => {
-                     console.log(comment);
                    const { body, createdAt, userImage, userHandle } = comment;
                    return(
                        <Fragment key={createdAt}>

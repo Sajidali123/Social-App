@@ -22,6 +22,9 @@ class CommentForm extends Component {
         if(nextProps.UI.errors){
             this.setState({ errors: nextProps.UI.errors });
         }
+       if(!nextProps.UI.errors && !nextProps.UI.loading){
+           this.setState({ body: '' });
+       } 
     }
 
     handleChange = (event) => {
@@ -37,7 +40,7 @@ class CommentForm extends Component {
 
     render() {
         const { classes, authenticated } = this.props;
-        const { errors } = this.state.errors;
+        const { errors } = this.state;
         const commentFormMarkup = authenticated ? (
           <Grid item sm={12} style={{ textAlign: 'center' }}>
              <form onSubmit={this.handleSubmit}>
